@@ -1,0 +1,14 @@
+[network]
+name = "devnet"
+# Local Stacks node
+node_rpc_address = "http://127.0.0.1:20443"
+stacks_api_endpoint = "http://127.0.0.1:3999"
+events_observer_endpoint = "http://127.0.0.1:3700"
+# Faucet is optional for test tokens
+faucet = true
+
+[accounts]
+deployer = { mnemonic = "test test test test test test test test test test test junk", balance = 1_000_000_000_000 }
+wallet_1 = { mnemonic = "test test test test test test test test test test test junk", balance = 500_000_000_000 }
+wallet_2 = { mnemonic = "test test test test test test test test test test test junk", balance = 500_000_000_000 }
+

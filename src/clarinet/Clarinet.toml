@@ -1,0 +1,10 @@
+[project]
+name = "stacks-options"
+authors = ["Oleg C"]
+description = "Option trading"
+telemetry = false
+
+
+[contracts.volatility]
+path = "contracts/stxOptions.clar"
+
