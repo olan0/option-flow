@@ -1,10 +1,17 @@
 [project]
-name = "stacks-options"
+name = "optionflow-amm"
 authors = ["Oleg C"]
-description = "Option trading"
-telemetry = false
+description = "Options AMM with SIP-010 token support"
+license = "MIT"
 
+[contracts.sip-010-trait]
+path = "contracts/sip-010-trait.clar"
 
-[contracts.volatility]
-path = "contracts/stxOptions.clar"
+[contracts.mock-token]
+path = "contracts/mock-token.clar"
+depends_on = ["sip-010-trait"]
+
+[contracts.option-amm]
+path = "contracts/option-amm.clar"
+depends_on = ["sip-010-trait", "mock-token"]
 

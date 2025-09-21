@@ -1,0 +1,25 @@
+{
+  "name": "clarinet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@stacks/cli": "^7.2.0",
+    "@stacks/network": "^7.2.0",
+    "@stacks/transactions": "^7.2.0",
+    "chai": "^6.0.1",
+    "mocha": "^11.7.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^5.2.2"
+  }
+}

@@ -12,14 +12,7 @@
 
 
 ;; --- Trait Definitions & Constants ---
-(define-trait sip-010-ft-standard
-  ((transfer (principal uint principal (optional (buff 34))) (response bool uint))
-   (get-name () (response (string-ascii 32) uint))
-   (get-symbol () (response (string-ascii 32) uint))
-   (get-decimals () (response uint uint))
-   (get-balance (principal) (response uint uint))
-   (get-total-supply () (response uint uint))
-   (get-token-uri () (response (optional (string-utf8 256)) uint))))
+(use-trait sip-010 .sip-010-trait.sip-010-ft-standard)
 
 (define-constant LP-TOKEN-CONTRACT .lp-token)
 
@@ -155,7 +148,7 @@
     (option-type (string-ascii 4))
     (initial-liquidity uint)
     (iv uint)
-    (token-contract <sip-010-ft-standard>)
+    (token-contract <sip-010>)
   )
   (begin
     (asserts! (is-eq tx-sender CONTRACT_OWNER) ERR_UNAUTHORIZED)
@@ -186,7 +179,7 @@
 )
 
 ;; @desc Adds liquidity to an existing pool.
-(define-public (add-liquidity (pool-id (string-ascii 32)) (amount uint) (token-contract <sip-010-ft-standard>))
+(define-public (add-liquidity (pool-id (string-ascii 32)) (amount uint) (token-contract <sip-010>))
   (let
     (
       (pool (unwrap! (map-get? pools pool-id) ERR_INVALID_POOL))
@@ -214,7 +207,7 @@
 
 
 ;; @desc Buys an option from the AMM.
-(define-public (buy-option (pool-id (string-ascii 32)) (quantity uint) (max-cost uint) (oracle-price uint) (token-contract <sip-010-ft-standard>))
+(define-public (buy-option (pool-id (string-ascii 32)) (quantity uint) (max-cost uint) (oracle-price uint) (token-contract <sip-010>))
   (let
     (
       (pool (unwrap! (map-get? pools pool-id) ERR_INVALID_POOL))
@@ -245,7 +238,7 @@
 )
 
 ;; @desc Sells (writes) an option to the AMM. This is a simplified version where the AMM buys the option from the writer.
-(define-public (sell-option (pool-id (string-ascii 32)) (quantity uint) (min-premium uint) (oracle-price uint) (token-contract <sip-010-ft-standard>))
+(define-public (sell-option (pool-id (string-ascii 32)) (quantity uint) (min-premium uint) (oracle-price uint) (token-contract <sip-010>))
     (let
     (
       (pool (unwrap! (map-get? pools pool-id) ERR_INVALID_POOL))

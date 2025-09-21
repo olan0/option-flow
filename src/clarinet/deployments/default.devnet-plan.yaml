@@ -9,10 +9,24 @@ plan:
     - id: 0
       transactions:
         - contract-publish:
-            contract-name: volatility
+            contract-name: sip-010-trait
             expected-sender: ST3N7D4F8TDBNPAN7W6CJ5RGF5DAW5MGHNEGTCR6R
-            cost: 14880
-            path: "contracts\\stxOptions.clar"
+            cost: 4720
+            path: "contracts\\sip-010-trait.clar"
+            anchor-block-only: true
+            clarity-version: 1
+        - contract-publish:
+            contract-name: mock-token
+            expected-sender: ST3N7D4F8TDBNPAN7W6CJ5RGF5DAW5MGHNEGTCR6R
+            cost: 14420
+            path: "contracts\\mock-token.clar"
+            anchor-block-only: true
+            clarity-version: 1
+        - contract-publish:
+            contract-name: option-amm
+            expected-sender: ST3N7D4F8TDBNPAN7W6CJ5RGF5DAW5MGHNEGTCR6R
+            cost: 137570
+            path: "contracts\\option-amm.clar"
             anchor-block-only: true
             clarity-version: 1
       epoch: "2.05"
